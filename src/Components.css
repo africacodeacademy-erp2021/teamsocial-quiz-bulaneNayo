@@ -1,0 +1,80 @@
+.form-div{
+    align-items: center;
+}
+
+.form{
+    position: relative;
+    left: 600px;
+    border: 1px;
+    border-radius: 2px;
+    border-color: black;
+    margin-top: 200px;
+}
+
+.input{
+    width: 200px;
+    height: 30px;
+    border-radius: 4px;
+    
+}
+.btn{
+   
+    width: 100px;
+    height: 30px;
+    border-radius: 4px; 
+    position: relative;
+    left: 55px;
+    background-color: green;
+    color:white;
+}
+
+.errors{
+    color: red;
+    margin-top: 0px;
+}
+.categories-div{
+    position: relative;
+    left: 555px;
+    
+}
+.category-btn{
+   
+    width: 400px;
+    height: 30px;
+    border-radius: 4px;  
+    background-color: rgb(42, 53, 4);
+    color:white;
+}
+.category-back{  
+    width: 200px;
+    height: 30px;
+    border-radius: 4px; 
+    margin-top: 20px;
+    background-color: green;
+    color:white;
+}
+.btn1{
+     
+    width: 200px;
+    height: 30px;
+    border-radius: 4px; 
+    margin-top: 20px;
+    background-color: green;
+    margin-right: 20px;
+    color:white;
+
+}
+.btn2{
+     
+    height: 30px;
+    border-radius: 4px; 
+    margin-top: 20px;
+    background-color: green;
+    color:white;
+
+
+}
+.answers{
+    
+}
+
