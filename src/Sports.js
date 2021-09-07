@@ -57,7 +57,7 @@ import React, { useState } from 'react';
   }
 
   return (
-    <>
+    <div categories-div>
     
       <h2 className='header'>Sports</h2>
       <p>Current Player : {username}</p>
@@ -90,7 +90,7 @@ import React, { useState } from 'react';
             </>
           )}
       </div>
-    </>
+    <div/>
   );
 }
 
