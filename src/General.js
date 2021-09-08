@@ -8,7 +8,7 @@ import React, { useState } from 'react';
   
   const questions = [
    
-    //second question
+    //first question
     {
       questionText: 'What is the best thing to do before cooking?',
       answerOptions: [
@@ -18,7 +18,7 @@ import React, { useState } from 'react';
         { answerText: 'Prepare ingredients', isCorrect: false },
       ],
     },
-    //third question
+    //second question
     {
       questionText: 'Who is the founder of Amozon?',
       answerOptions: [
@@ -28,7 +28,7 @@ import React, { useState } from 'react';
         { answerText: 'Bill Gates', isCorrect: false },
       ],
     },
-    //fourth question
+    //third question
     {
       questionText: 'Botho University is found only in Botswana',
       answerOptions: [
@@ -37,7 +37,7 @@ import React, { useState } from 'react';
         { answerText: 'True', isCorrect: false },
       ],
     },
-    //fitfh question
+    //fourth question
     {
       questionText: 'Which country heavily produces marijuana?',
       answerOptions: [
@@ -47,7 +47,7 @@ import React, { useState } from 'react';
         { answerText: 'China', isCorrect: false },
       ],
     },
-    //sixth question
+    //fitfh question
     {
       questionText: 'Which country the most populated in the world?',
       answerOptions: [
@@ -57,7 +57,7 @@ import React, { useState } from 'react';
         { answerText: 'Somalia', isCorrect: false },
       ],
     },
-    //seventh question
+    //sixth question
     {
       questionText: 'Queen Elizabeth II disowned Prince Harry',
       answerOptions: [
@@ -65,7 +65,7 @@ import React, { useState } from 'react';
         { answerText: 'True', isCorrect: false },
       ],
     },
-    //eighth question
+    //seventh question
     {
       questionText: 'Lesotho exports wool and mohair',
       answerOptions: [
@@ -73,7 +73,7 @@ import React, { useState } from 'react';
         { answerText: 'False', isCorrect: false },
       ],
     },
-    //nineth question
+    //eighth question
     {
       questionText: 'Which of the following gases make water when combined?',
       answerOptions: [
@@ -83,7 +83,7 @@ import React, { useState } from 'react';
         { answerText: 'Co2 and H', isCorrect: false },
       ],
     },
-    //tenth question
+    //nineth question
     {
       questionText: 'Who is the narrator in money heist?',
       answerOptions: [
@@ -93,7 +93,7 @@ import React, { useState } from 'react';
         { answerText: 'Lesbon', isCorrect: false },
       ],
     },
-    //eleventh question
+    //tenth question
     {
       questionText: 'How many children does Chris Jenner have?',
       answerOptions: [
