@@ -37,7 +37,7 @@ import React, { useState } from 'react';
     
   ]
 
-  
+  const random = Math.floor(Math.random() * questions.length);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false)
   const [score, setScore] = useState(0)
@@ -57,7 +57,7 @@ import React, { useState } from 'react';
   }
 
   return (
-    <>
+    <div className="categories-div">
     
       <h2 className='header'>Sports</h2>
       <p>Current Player : {username}</p>
@@ -72,17 +72,17 @@ import React, { useState } from 'react';
             <>
               <div className='question-section'>
                 <div className='question-count'>
-                  <span>Question {currentQuestion + 1}</span>{questions.length}
+                  <span>Question {currentQuestion + 1}</span>
                 </div>
                 <div className='question-text'>
-                  {questions[currentQuestion].questionText}
+                  {questions[random].questionText}
                 </div>
               </div>
 
-              <div className='answer-section'>
+              <div className='answers'>
                 {
                   questions[currentQuestion].answerOptions.map((answerOptions) => (
-                    <button onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}>
+                    <button onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)} className="answers-btn">
                       {answerOptions.answerText}</button>
                   ))
                 }
@@ -90,7 +90,7 @@ import React, { useState } from 'react';
             </>
           )}
       </div>
-    </>
+    </div>
   );
 }
 

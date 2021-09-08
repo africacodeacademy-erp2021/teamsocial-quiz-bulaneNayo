@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
  function Programming() {
   const Name= JSON.stringify(localStorage.getItem('Current'))
   const user = Name.replace('"','');
@@ -35,17 +36,65 @@ import React, { useState } from 'react';
       ],
     },
     {
-      questionText: 'Which of the following languages requires properties to be given types? ',
+      questionText: 'Which statement is compulsory in order to work with inputs outputs in C++? ',
       answerOptions: [
-        { answerText: 'CSS', isCorrect: false },
-        { answerText: 'Javascrit', isCorrect: false },
-        { answerText: 'C++', isCorrect: false },
-        { answerText: 'Typescript', isCorrect: true },
+        { answerText: 'npm install io', isCorrect: false },
+        { answerText: 'using namespace std;', isCorrect: false },
+        { answerText: 'cout <<', isCorrect: false },
+        { answerText: '#include<iostream>', isCorrect: true },
+      ],
+    },
+    {
+      questionText: 'JavaScript is ______ Side scripting language. ',
+      answerOptions: [
+        { answerText: 'Server', isCorrect: false },
+        { answerText: 'Client', isCorrect: false },
+        { answerText: ' ISP', isCorrect: false },
+        { answerText: 'Browser', isCorrect: true },
+      ],
+    },
+    {
+      questionText: '  ______ tag is an extension to HTML that can enclose any number of JavaScript statements. ',
+      answerOptions: [
+        { answerText: '<BODY>', isCorrect: false },
+        { answerText: '<TITLE>', isCorrect: false },
+        { answerText: ' <HEAD>', isCorrect: false },
+        { answerText: '<SCRIPT>', isCorrect: true },
+      ],
+    },
+    {
+      questionText: ' What is the correct syntax for referring to an external script called " abc.js"? ',
+      answerOptions: [
+        { answerText: '<script src=" abc.js">', isCorrect: true },
+        { answerText: ' <script href=" abc.js">', isCorrect: false },
+        { answerText: ' <script name=" abc.js">', isCorrect: false },
+        { answerText: 'None of the above', isCorrect: false },
+        
+      ],
+    },
+    {
+      questionText: ' Using _______ statement is how you test for a specific condition. ',
+      answerOptions: [
+        { answerText: 'Select', isCorrect: false },
+        { answerText: ' For', isCorrect: false },
+        { answerText: ' Select', isCorrect: false },
+        { answerText: ' If', isCorrect: true },
+      ],
+    },
+    {
+      questionText: ' The JavaScript exception is available to the Java code as an instance of _______.',
+      answerOptions: [
+        { answerText: 'netscape.javascript.JSObject', isCorrect: false },
+        { answerText: 'netscape.javascript.JSException', isCorrect: true },
+        { answerText: 'netscape.plugin.JSException', isCorrect: false },
+        { answerText: ' None of the above', isCorrect: false },
+        
       ],
     },
     
   ]
  
+  const random = Math.floor(Math.random() * questions.length);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false)
   const [score, setScore] = useState(0)
@@ -70,39 +119,39 @@ import React, { useState } from 'react';
 
   return (
     <div className="categories-div">
-      <h1 className='header'>Programming</h1>
+      <h1>Programming</h1>
       <p>Current Player : {username}</p>
       
       <div className="app">
         {showScore ? (
           <div className='score-section'>
         
-           {username} you scored {score} out of {questions.length}
+           {username} you scored {score} out of {questions.length} questions
           
-        
           </div>
         )
           :
           (
-            <>
+            <div>
               <div className='question-section'>
                 <div className='question-count'>
-                 {/*<span>Question {currentQuestion + 1}</span>{questions.length}*/} 
+                 <span>Question {currentQuestion + 1}</span>
+
                 </div>
                 <div className='question-text'>
-                  {questions[currentQuestion].questionText}
+                  {questions[random].questionText}
                 </div>
               </div>
 
               <div className='answers'>
                 {
                   questions[currentQuestion].answerOptions.map((answerOptions) => (
-                    <button onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}>
+                    <button onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)} className="answers-btn">
                       {answerOptions.answerText}</button>
                   ))
                 }
               </div>
-            </>
+            </div>
           )}
           <button className="btn1">Choose another category</button>
           

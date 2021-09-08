@@ -5,7 +5,8 @@ import {BrowserRouter as
     useHistory } from 'react-router-dom';   
 import General from './General'
 import Sports from "./Sports";
-import Programming from "./Programming";
+import Programming from './Programming';
+import Registration from './Registration'
 
  function Categories() {
     
@@ -14,7 +15,7 @@ import Programming from "./Programming";
         const HandleSports = () => history.push("./Sports");
         const HandleGeneral= () =>history.push("./General");
         const HandleProgramming = () => history.push("./Programming");
-        //const HandleBack = () => history.push("./Registration");
+        const HandleBack = () => history.push("./Registration");
 
         const Name= JSON.stringify(localStorage.getItem('Current'));
         const user = Name.replace('"','');
@@ -29,7 +30,7 @@ import Programming from "./Programming";
             <p><button className="category-btn" onClick= {HandleSports}>Sports</button></p>
             <p><button className="category-btn" onClick= {HandleGeneral}>General Knowledge</button></p>
             <p><button className="category-btn" onClick= {HandleProgramming}>Programming</button></p>
-            {/*<p><button className="category-back" onClick={HandleBack}>Back</button></p>*/}
+            <p><button className="category-back" onClick={HandleBack}>Back</button></p>
             
             </div>
         )
@@ -42,6 +43,7 @@ import Programming from "./Programming";
                 <Route path="/Sports" exact component={Sports}/>
                 <Route path="/General" exact component={General}/>
                 <Route path="/Programming" exact component={Programming}/>
+                <Route path="/Registration" exact component={Registration}/>
                 <Route path= "/"  component = {Content}/>
              </Switch>
          </Router>
