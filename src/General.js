@@ -7,16 +7,7 @@ import React, { useState } from 'react';
   const username = user.replace('"','');
   
   const questions = [
-    //first question
-    {
-      questionText: 'Who is the richest person in the world?',
-      answerOptions: [
-        { answerText: 'Elon Musk', isCorrect: false },
-        { answerText: 'Jeff Bezos', isCorrect: true },
-        { answerText: 'Bulane Naeo', isCorrect: false },
-        { answerText: 'Bill Gates', isCorrect: false },
-      ],
-    },
+   
     //second question
     {
       questionText: 'What is the best thing to do before cooking?',
@@ -149,7 +140,7 @@ import React, { useState } from 'react';
             <div>
               <div className='question-section'>
                 <div className='question-count'>
-                  <span>Question {currentQuestion + 1}</span>
+                  <span className="Question">Question {currentQuestion + 1}</span>
                 </div>
                 <div className='question-text'>
                   {questions[random].questionText}
@@ -158,7 +149,7 @@ import React, { useState } from 'react';
 
               <div className='answers'>
                 {
-                  questions[currentQuestion].answerOptions.map((answerOptions) => (
+                  questions[random].answerOptions.map((answerOptions) => (
                     <button onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}className="answers-btn">
                       {answerOptions.answerText}</button>
                   ))

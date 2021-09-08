@@ -1,160 +1,168 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
+function Programming() {
+  const Name = JSON.stringify(localStorage.getItem("Current"));
+  const user = Name.replace('"', "");
+  const username = user.replace('"', "");
 
- function Programming() {
-  const Name= JSON.stringify(localStorage.getItem('Current'))
-  const user = Name.replace('"','');
-  const username = user.replace('"','');
-  
-  
   const questions = [
-   {
-      questionText: 'Which of the following is a scripting language?',
-      answerOptions: [
-        { answerText: 'Typescript', isCorrect: false }, 
-        { answerText: 'Java', isCorrect: false },
-        { answerText: 'Javascript', isCorrect: true},
-        { answerText: 'Angular', isCorrect: false },
-      ],
-    }, 
     {
-      questionText: 'Which command is used to create a react app?',
+      questionText: "Which of the following is a scripting language?",
       answerOptions: [
-        { answerText: 'npm install appname', isCorrect: false },
-        { answerText: 'npx create-react-app appname', isCorrect: true },
-        { answerText: 'npm audit fix', isCorrect: false },
-        { answerText: 'yarn install appname', isCorrect: false },
+        { answerText: "Typescript", isCorrect: false },
+        { answerText: "Java", isCorrect: false },
+        { answerText: "Javascript", isCorrect: true },
+        { answerText: "Angular", isCorrect: false },
       ],
     },
     {
-      questionText: 'Which language is used to buid the UI in android?',
+      questionText: "Which command is used to create a react app?",
       answerOptions: [
-        { answerText: 'java', isCorrect: false },
-        { answerText: 'XML', isCorrect: true },
-        { answerText: 'React', isCorrect: false },
-        { answerText: 'Javascrit', isCorrect: false },
+        { answerText: "npm install appname", isCorrect: false },
+        { answerText: "npx create-react-app appname", isCorrect: true },
+        { answerText: "npm audit fix", isCorrect: false },
+        { answerText: "yarn install appname", isCorrect: false },
       ],
     },
     {
-      questionText: 'Which statement is compulsory in order to work with inputs outputs in C++? ',
+      questionText: "Which language is used to buid the UI in android?",
       answerOptions: [
-        { answerText: 'npm install io', isCorrect: false },
-        { answerText: 'using namespace std;', isCorrect: false },
-        { answerText: 'cout <<', isCorrect: false },
-        { answerText: '#include<iostream>', isCorrect: true },
+        { answerText: "java", isCorrect: false },
+        { answerText: "XML", isCorrect: true },
+        { answerText: "React", isCorrect: false },
+        { answerText: "Javascrit", isCorrect: false },
       ],
     },
     {
-      questionText: 'JavaScript is ______ Side scripting language. ',
+      questionText:
+        "Which statement is compulsory in order to work with inputs outputs in C++? ",
       answerOptions: [
-        { answerText: 'Server', isCorrect: false },
-        { answerText: 'Client', isCorrect: false },
-        { answerText: ' ISP', isCorrect: false },
-        { answerText: 'Browser', isCorrect: true },
+        { answerText: "npm install io", isCorrect: false },
+        { answerText: "using namespace std;", isCorrect: false },
+        { answerText: "cout <<", isCorrect: false },
+        { answerText: "#include<iostream>", isCorrect: true },
       ],
     },
     {
-      questionText: '  ______ tag is an extension to HTML that can enclose any number of JavaScript statements. ',
+      questionText: "JavaScript is ______ Side scripting language. ",
       answerOptions: [
-        { answerText: '<BODY>', isCorrect: false },
-        { answerText: '<TITLE>', isCorrect: false },
-        { answerText: ' <HEAD>', isCorrect: false },
-        { answerText: '<SCRIPT>', isCorrect: true },
+        { answerText: "Server", isCorrect: false },
+        { answerText: "Client", isCorrect: false },
+        { answerText: " ISP", isCorrect: false },
+        { answerText: "Browser", isCorrect: true },
       ],
     },
     {
-      questionText: ' What is the correct syntax for referring to an external script called " abc.js"? ',
+      questionText:
+        "  ______ tag is an extension to HTML that can enclose any number of JavaScript statements. ",
+      answerOptions: [
+        { answerText: "<BODY>", isCorrect: false },
+        { answerText: "<TITLE>", isCorrect: false },
+        { answerText: " <HEAD>", isCorrect: false },
+        { answerText: "<SCRIPT>", isCorrect: true },
+      ],
+    },
+    {
+      questionText:
+        ' What is the correct syntax for referring to an external script called " abc.js"? ',
       answerOptions: [
         { answerText: '<script src=" abc.js">', isCorrect: true },
         { answerText: ' <script href=" abc.js">', isCorrect: false },
         { answerText: ' <script name=" abc.js">', isCorrect: false },
-        { answerText: 'None of the above', isCorrect: false },
-        
+        { answerText: "None of the above", isCorrect: false },
       ],
     },
     {
-      questionText: ' Using _______ statement is how you test for a specific condition. ',
+      questionText:
+        " Using _______ statement is how you test for a specific condition. ",
       answerOptions: [
-        { answerText: 'Select', isCorrect: false },
-        { answerText: ' For', isCorrect: false },
-        { answerText: ' Select', isCorrect: false },
-        { answerText: ' If', isCorrect: true },
+        { answerText: "Select", isCorrect: false },
+        { answerText: " For", isCorrect: false },
+        { answerText: " Select", isCorrect: false },
+        { answerText: " If", isCorrect: true },
       ],
     },
     {
-      questionText: ' The JavaScript exception is available to the Java code as an instance of _______.',
+      questionText:
+        " The JavaScript exception is available to the Java code as an instance of _______.",
       answerOptions: [
-        { answerText: 'netscape.javascript.JSObject', isCorrect: false },
-        { answerText: 'netscape.javascript.JSException', isCorrect: true },
-        { answerText: 'netscape.plugin.JSException', isCorrect: false },
-        { answerText: ' None of the above', isCorrect: false },
-        
+        { answerText: "netscape.javascript.JSObject", isCorrect: false },
+        { answerText: "netscape.javascript.JSException", isCorrect: true },
+        { answerText: "netscape.plugin.JSException", isCorrect: false },
+        { answerText: " None of the above", isCorrect: false },
       ],
     },
-    
-  ]
- 
+  ];
+
   const random = Math.floor(Math.random() * questions.length);
+  const spacing = " " ;
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [showScore, setShowScore] = useState(false)
-  const [score, setScore] = useState(0)
+  const [showScore, setShowScore] = useState(false);
+  const [score, setScore] = useState(0);
   const handleAnswerButtonClick = (isCorrect) => {
-    
     if (isCorrect === true) {
       setScore(score + 1);
-      
-      
     }
 
     const nextQuetions = currentQuestion + 1;
-    
+
     if (nextQuetions < questions.length) {
       setCurrentQuestion(nextQuetions);
+    } else {
+      setShowScore(true);
     }
-    else {
-      setShowScore(true)
-    
-    }
-  }
+  };
 
   return (
     <div className="categories-div">
       <h1>Programming</h1>
       <p>Current Player : {username}</p>
-      
+
       <div className="app">
         {showScore ? (
-          <div className='score-section'>
-        
-           {username} you scored {score} out of {questions.length} questions
-          
+          <div className="score-section">
+            <p>
+              {" "}
+              {username} you scored {score} out of {questions.length} questions
+            </p>
           </div>
-        )
-          :
-          (
-            <div>
-              <div className='question-section'>
-                <div className='question-count'>
-                 <span>Question {currentQuestion + 1}</span>
-
-                </div>
-                <div className='question-text'>
-                  {questions[random].questionText}
-                </div>
+        ) : (
+          <div>
+            <div className="question-section">
+              <div className="question-count">
+                <p>
+                <label htmlFor="no-of-questions">
+                  Choose number of questions :
+                </label>
+                {spacing}
+                <select name="no-of-questions" id="no-of-questions">
+                  <option value="5">5</option>
+                  <option value="7">7</option>
+                </select>
+                </p>
+                
+                <span className="Question">Question {currentQuestion + 1}</span>
               </div>
-
-              <div className='answers'>
-                {
-                  questions[currentQuestion].answerOptions.map((answerOptions) => (
-                    <button onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)} className="answers-btn">
-                      {answerOptions.answerText}</button>
-                  ))
-                }
+              <div className="question-text">
+                {questions[random].questionText}
               </div>
             </div>
-          )}
-          <button className="btn1">Choose another category</button>
-          
+
+            <div className="answers">
+              {questions[random].answerOptions.map((answerOptions) => (
+                <button
+                  onClick={() =>
+                    handleAnswerButtonClick(answerOptions.isCorrect)
+                  }
+                  className="answers-btn"
+                >
+                  {answerOptions.answerText}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+        <button className="btn1">Choose another category</button>
       </div>
     </div>
   );

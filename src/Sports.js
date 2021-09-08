@@ -8,6 +8,20 @@ import React, { useState } from 'react';
 
   const questions = [
     {
+      questionText: 'Steve Kompela is currently coaching Bafana Bafana?',
+      answerOptions: [
+        { answerText: 'False', isCorrect: true },
+        { answerText: 'True', isCorrect: false },
+      ],
+    },
+    {
+      questionText: 'Kaizer Chiefs has never won in PSL Leaque',
+      answerOptions: [
+        { answerText: 'False', isCorrect: true },
+        { answerText: 'True', isCorrect: false },
+      ],
+    },
+    {
       questionText: 'Which team does Messi play for now?',
       answerOptions: [
         { answerText: 'Chiefs', isCorrect: false },
@@ -16,6 +30,7 @@ import React, { useState } from 'react';
         { answerText: 'Real Madrid', isCorrect: false },
       ],
     },
+    
     {
       questionText: 'Which counry is hosting Olympics 2020?',
       answerOptions: [
@@ -32,6 +47,33 @@ import React, { useState } from 'react';
         { answerText: 'Likoena FC', isCorrect: true },
         { answerText: 'Lesotho FC', isCorrect: false },
         { answerText: 'Basotho FC', isCorrect: false },
+      ],
+    },
+    {
+      questionText: 'What does jersy no.4 mean in in football?',
+      answerOptions: [
+        { answerText: 'Striker', isCorrect: false },
+        { answerText: 'central defender', isCorrect: true },
+        { answerText: 'Captain', isCorrect: false },
+        { answerText: 'Goal keeper', isCorrect: false },
+      ],
+    },
+    {
+      questionText: 'What is the name of the national football team in Lesotho?',
+      answerOptions: [
+        { answerText: 'Bakoena FC', isCorrect: false },
+        { answerText: 'Likoena FC', isCorrect: true },
+        { answerText: 'Lesotho FC', isCorrect: false },
+        { answerText: 'Basotho FC', isCorrect: false },
+      ],
+    },
+    {
+      questionText: 'Which team does Itumeleng Khune play for?',
+      answerOptions: [
+        { answerText: 'Barcelona', isCorrect: false },
+        { answerText: 'Kaizer Chiefs', isCorrect: true },
+        { answerText: 'Pirates', isCorrect: false },
+        { answerText: 'Arsenal', isCorrect: false },
       ],
     },
     
@@ -72,7 +114,7 @@ import React, { useState } from 'react';
             <>
               <div className='question-section'>
                 <div className='question-count'>
-                  <span>Question {currentQuestion + 1}</span>
+                  <span className="Question">Question {currentQuestion + 1}</span>
                 </div>
                 <div className='question-text'>
                   {questions[random].questionText}
@@ -81,7 +123,7 @@ import React, { useState } from 'react';
 
               <div className='answers'>
                 {
-                  questions[currentQuestion].answerOptions.map((answerOptions) => (
+                  questions[random].answerOptions.map((answerOptions) => (
                     <button onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)} className="answers-btn">
                       {answerOptions.answerText}</button>
                   ))

@@ -84,7 +84,10 @@
     cursor:pointer ;
     padding: auto;
 }
-.answers{
+.Question{
+    position: relative;
+    left: 70px;
+    font-weight: bold;
     
 }
 

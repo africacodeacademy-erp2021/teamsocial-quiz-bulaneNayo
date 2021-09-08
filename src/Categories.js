@@ -32,6 +32,7 @@ import Registration from './Registration'
             <p><button className="category-btn" onClick= {HandleProgramming}>Programming</button></p>
             <p><button className="category-back" onClick={HandleBack}>Back</button></p>
             
+            
             </div>
         )
         }
