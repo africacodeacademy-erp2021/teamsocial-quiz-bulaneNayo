@@ -5,7 +5,7 @@ function Programming() {
   const user = Name.replace('"', "");
   const username = user.replace('"', "");
 
-  const questions = [
+  let questions = [
     {
       questionText: "Which of the following is a scripting language?",
       answerOptions: [
@@ -76,7 +76,7 @@ function Programming() {
       questionText:
         " Using _______ statement is how you test for a specific condition. ",
       answerOptions: [
-        { answerText: "Select", isCorrect: false },
+        { answerText: "Switch", isCorrect: false },
         { answerText: " For", isCorrect: false },
         { answerText: " Select", isCorrect: false },
         { answerText: " If", isCorrect: true },
@@ -92,13 +92,68 @@ function Programming() {
         { answerText: " None of the above", isCorrect: false },
       ],
     },
+    {
+      questionText: " Which data structre stores unique values",
+      answerOptions: [
+        { answerText: "Linked List", isCorrect: false },
+        { answerText: "Sets", isCorrect: true },
+        { answerText: "Arrays", isCorrect: false },
+        { answerText: " Stack", isCorrect: false },
+      ],
+    },
   ];
 
-  const random = Math.floor(Math.random() * questions.length);
-  const spacing = " " ;
+  const [option, setOption] = useState();
+  const [selected_num, setSelected_num] = useState(10);
+  const [random, setRandom] = useState(questions);
+
+  function shuffle_questions(array) {
+    var number = array.length,
+      temp,
+      index;
+    while (number > 0) {
+      index = Math.floor(Math.random() * number);
+      number--;
+
+      temp = array[number];
+      array[number] = array[index];
+      array[index] = temp;
+    }
+    return array;
+  }
+
+  function optionChange(event) {
+    setOption(event.target.value);
+    setSelected_num(event.target.value);
+
+    if (selected_num === 5) {
+      shuffle_questions(questions);
+      questions.splice(5, 5);
+      let temp = questions;
+      setRandom(temp);
+      console.log(temp)
+
+    } else if (selected_num === 7) {
+      shuffle_questions(questions);
+      questions.splice(7, 3);
+      let temp = questions;
+      setRandom(temp);
+      
+    } else {
+      shuffle_questions(questions);
+      questions.splice(10, 10);
+      let temp = questions;
+      setRandom(temp);
+    }
+
+    return selected_num;
+  }
+
+  const spacing = " ";
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+
   const handleAnswerButtonClick = (isCorrect) => {
     if (isCorrect === true) {
       setScore(score + 1);
@@ -106,7 +161,7 @@ function Programming() {
 
     const nextQuetions = currentQuestion + 1;
 
-    if (nextQuetions < questions.length) {
+    if (nextQuetions < selected_num) {
       setCurrentQuestion(nextQuetions);
     } else {
       setShowScore(true);
@@ -122,8 +177,8 @@ function Programming() {
         {showScore ? (
           <div className="score-section">
             <p>
-              {" "}
-              {username} you scored {score} out of {questions.length} questions
+              {spacing}
+              {username} you scored {score} out of {selected_num} questions
             </p>
           </div>
         ) : (
@@ -131,25 +186,26 @@ function Programming() {
             <div className="question-section">
               <div className="question-count">
                 <p>
-                <label htmlFor="no-of-questions">
-                  Choose number of questions :
-                </label>
-                {spacing}
-                <select name="no-of-questions" id="no-of-questions">
-                  <option value="5">5</option>
-                  <option value="7">7</option>
-                </select>
+                  <label htmlFor="no-of-questions">
+                    Choose number of questions :
+                  </label>
+                  {spacing}
+                  <select name="no-of-questions" onChange={optionChange}>
+                    <option value="10">All</option>
+                    <option value="5">5</option>
+                    <option value="7">7</option>
+                  </select>
                 </p>
-                
+
                 <span className="Question">Question {currentQuestion + 1}</span>
               </div>
               <div className="question-text">
-                {questions[random].questionText}
+                {random[currentQuestion].questionText}
               </div>
             </div>
 
             <div className="answers">
-              {questions[random].answerOptions.map((answerOptions) => (
+              {random[currentQuestion].answerOptions.map((answerOptions) => (
                 <button
                   onClick={() =>
                     handleAnswerButtonClick(answerOptions.isCorrect)
