@@ -10,6 +10,7 @@
           Categories.js
           Programming.js
           General.js
+          Spoerts.js
           
 ### 3. Display total score
 ### 4. Display meme according to the score
