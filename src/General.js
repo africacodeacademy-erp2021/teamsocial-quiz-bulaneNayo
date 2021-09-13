@@ -6,7 +6,6 @@ function General() {
   const username = user.replace('"', "");
 
   const questions = [
-    //second question
     {
       questionText: "What is the best thing to do before cooking?",
       answerOptions: [
@@ -16,7 +15,7 @@ function General() {
         { answerText: "Prepare ingredients", isCorrect: false },
       ],
     },
-    //third question
+    //second question
     {
       questionText: "Who is the founder of Amozon?",
       answerOptions: [
@@ -26,7 +25,7 @@ function General() {
         { answerText: "Bill Gates", isCorrect: false },
       ],
     },
-    //fourth question
+    //third question
     {
       questionText: "Botho University is found only in Botswana",
       answerOptions: [
@@ -34,7 +33,7 @@ function General() {
         { answerText: "True", isCorrect: false },
       ],
     },
-    //fitfh question
+    //fourth question
     {
       questionText: "Which country heavily produces marijuana?",
       answerOptions: [
@@ -44,7 +43,7 @@ function General() {
         { answerText: "China", isCorrect: false },
       ],
     },
-    //sixth question
+    //fitfh question
     {
       questionText: "Which country the most populated in the world?",
       answerOptions: [
@@ -54,7 +53,7 @@ function General() {
         { answerText: "Somalia", isCorrect: false },
       ],
     },
-    //seventh question
+    //sixth question
     {
       questionText: "Queen Elizabeth II disowned Prince Harry",
       answerOptions: [
@@ -62,7 +61,7 @@ function General() {
         { answerText: "True", isCorrect: false },
       ],
     },
-    //eighth question
+    //seventh question
     {
       questionText: "Lesotho exports wool and mohair",
       answerOptions: [
@@ -70,7 +69,7 @@ function General() {
         { answerText: "False", isCorrect: false },
       ],
     },
-    //nineth question
+    //eighth question
     {
       questionText: "Which of the following gases make water when combined?",
       answerOptions: [
@@ -80,7 +79,7 @@ function General() {
         { answerText: "Co2 and H", isCorrect: false },
       ],
     },
-    //tenth question
+    //nineth question
     {
       questionText: "Who is the narrator in money heist?",
       answerOptions: [
@@ -90,7 +89,7 @@ function General() {
         { answerText: "Lesbon", isCorrect: false },
       ],
     },
-    //eleventh question
+    //tenth question
     {
       questionText: "How many children does Khris Jenner have?",
       answerOptions: [

@@ -9,9 +9,17 @@ const Registration = ({ submitForm }) => {
     validate
   );
 
+
+// store the value for username in local storage with key called Current  
+const CurrentPlayer = ()=>{
+    localStorage.setItem('Current', values.username)
+   
+    };
+  
   const CurrentPlayer = () => {
     localStorage.setItem("Current", values.username);
   };
+
 
   return (
     <div className="form-div">
