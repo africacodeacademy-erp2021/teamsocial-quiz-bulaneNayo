@@ -6,7 +6,7 @@ function General() {
   const username = user.replace('"', "");
 
   const questions = [
-    //second question
+    
     {
       questionText: "What is the best thing to do before cooking?",
       answerOptions: [
@@ -16,7 +16,7 @@ function General() {
         { answerText: "Prepare ingredients", isCorrect: false },
       ],
     },
-    //third question
+    
     {
       questionText: "Who is the founder of Amozon?",
       answerOptions: [
@@ -26,7 +26,7 @@ function General() {
         { answerText: "Bill Gates", isCorrect: false },
       ],
     },
-    //fourth question
+    
     {
       questionText: "Botho University is found only in Botswana",
       answerOptions: [
@@ -34,7 +34,7 @@ function General() {
         { answerText: "True", isCorrect: false },
       ],
     },
-    //fitfh question
+  
     {
       questionText: "Which country heavily produces marijuana?",
       answerOptions: [
@@ -44,7 +44,7 @@ function General() {
         { answerText: "China", isCorrect: false },
       ],
     },
-    //sixth question
+ 
     {
       questionText: "Which country the most populated in the world?",
       answerOptions: [
@@ -54,7 +54,7 @@ function General() {
         { answerText: "Somalia", isCorrect: false },
       ],
     },
-    //seventh question
+
     {
       questionText: "Queen Elizabeth II disowned Prince Harry",
       answerOptions: [
@@ -62,7 +62,7 @@ function General() {
         { answerText: "True", isCorrect: false },
       ],
     },
-    //eighth question
+
     {
       questionText: "Lesotho exports wool and mohair",
       answerOptions: [
@@ -70,7 +70,7 @@ function General() {
         { answerText: "False", isCorrect: false },
       ],
     },
-    //nineth question
+  
     {
       questionText: "Which of the following gases make water when combined?",
       answerOptions: [
@@ -80,7 +80,7 @@ function General() {
         { answerText: "Co2 and H", isCorrect: false },
       ],
     },
-    //tenth question
+
     {
       questionText: "Who is the narrator in money heist?",
       answerOptions: [
@@ -90,7 +90,6 @@ function General() {
         { answerText: "Lesbon", isCorrect: false },
       ],
     },
-    //eleventh question
     {
       questionText: "How many children does Khris Jenner have?",
       answerOptions: [
@@ -106,6 +105,7 @@ function General() {
   const [selected_num, setSelected_num] = useState(10);
   const [random, setRandom] = useState(questions);
 
+  //a function that rearranges the elements of an array and stores the shuffled elements into a temporary array
   function shuffle_questions(array) {
     var number = array.length,
       temp,
@@ -120,14 +120,14 @@ function General() {
     }
     return array;
   }
-
+// a function that displays the shuffled questions according to the nuber of questions selected(5,7,10)
   function optionChange(event) {
     setOption(event.target.value);
     setSelected_num(event.target.value);
 
     if (selected_num === 5) {
       shuffle_questions(questions);
-      questions.splice(5, 5);
+      questions.splice(5, 5); //splice questions to avoid duplication
       let temp = questions;
       setRandom(temp);
     } else if (selected_num === 7) {
