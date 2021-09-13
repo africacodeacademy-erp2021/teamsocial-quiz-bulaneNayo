@@ -7,10 +7,10 @@ import './Components.css';
 const Registration = ({ submitForm }) => {
 const {handleSubmit, errors,handleChange, values } = useForm(submitForm,validate);
 
+// store the value for username in local storage with key called Current  
 const CurrentPlayer = ()=>{
     localStorage.setItem('Current', values.username)
-    //values.username.replace(/"/g, "");
-    //JSON.parse('Current');
+   
     };
 
   return (
