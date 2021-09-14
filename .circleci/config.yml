@@ -1,38 +1,27 @@
 version: 2.1
+
 orbs:
-  heroku: circleci/heroku@1.2.6
+  node: circleci/node@4.1
+  heroku: circleci/heroku@1.0.1
 
-workflows:
-  build-test-and-deploy:
-    jobs:
-      - test   #first job to run
-      - build: #second job
-         requires:
-          - test  #its success depends on the first job       
 jobs:
-  test:
-    docker: #
-      - image: cimg/node:15.1
-    steps:
-      - checkout  #firstly check the changes made in the code 
-      - run:
-         name: install dependecies
-         command: npm install
-
-      - run:
-          name: tests
-          command: npm run test
   build:
-    docker:
-      - image: cimg/node:15.1
-
+    executor: node/default
     steps:
       - checkout
-      - run:
-         name: install dependecies
-         command: npm install
-      - run:
-          name: build production
-          command: npm run build
-  
+      - node/install-packages
+      
 
+workflows:
+  build-test-deploy:
+    jobs:
+      - build
+      - heroku/deploy-via-git:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
+      
+                
