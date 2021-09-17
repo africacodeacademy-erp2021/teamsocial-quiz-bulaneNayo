@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
+import { Meme } from "./Meme";
 
 function Programming() {
   const Name = JSON.stringify(localStorage.getItem("Current"));
@@ -130,15 +131,17 @@ function Programming() {
       shuffle_questions(questions);
       questions.splice(5, 5);
       let temp = questions;
+      console.log(random);
       setRandom(temp);
-      console.log(temp)
+      console.log(temp);
+
 
     } else if (selected_num === 7) {
       shuffle_questions(questions);
       questions.splice(7, 3);
       let temp = questions;
       setRandom(temp);
-      
+
     } else {
       shuffle_questions(questions);
       questions.splice(10, 10);
@@ -153,7 +156,6 @@ function Programming() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
-
   const handleAnswerButtonClick = (isCorrect) => {
     if (isCorrect === true) {
       setScore(score + 1);
@@ -168,6 +170,54 @@ function Programming() {
     }
   };
 
+  const [templates,setTemplates] = useState(null);
+ //const [template,setTemplate] = useState(null);
+
+
+  useEffect(() => {
+
+    fetch('https://api.imgflip.com/get_memes').then(x => 
+    x.json().then(response => setTemplates(response.data.memes)));
+    
+  },[]);
+
+
+ /* const [image,setImage] = useState(null);
+  const canvas = useRef(null);
+   useEffect(() => {
+      const memeImage = new Image();
+      //https://www.memedroid.com/memes/detail/3475053/Uhoh
+      memeImage.src="https://www.google.com/url?sa=" + 
+      "i&url=http%3A%2F%2Freplygif.net%2F954&psig=AOvVaw0o4Q9K6aj1s56m_XM5nhb0&ust=1631888734249000&source=images&cd=vfe&ved=" +
+      "0CAsQjRxqFwoTCNieqbXZg_MCFQAAAAAdAAAAABAN"
+      
+      memeImage.onload=() => setImage(memeImage);
+      
+
+    }, [])
+
+    useEffect(() =>{
+
+      if(image && canvas){
+        const ctx = canvas.current.getContext("2d")
+        ctx.fillRect(0,0,400,256+80)
+        ctx.drawImage(image,(400-256)/2,40) 
+        console.log(ctx);
+      }
+
+    },[image,canvas])*/
+
+    
+  /*const displayMeme = selected_num / 2;
+  let images='';
+  if (score >= displayMeme) {
+   console.log(images);
+    
+  } else {
+    console.log("...");
+  }*/
+
+  
   return (
     <div className="categories-div">
       <h1>Programming</h1>
@@ -180,6 +230,25 @@ function Programming() {
               {spacing}
               {username} you scored {score} out of {selected_num} questions
             </p>
+            <div>
+
+              {templates.map(template => {
+                return(
+                  <Meme
+                    template={template}
+                    
+                  />  
+                )
+              })}
+                {/*<canvas
+                  ref = {image}
+                  width={400}
+                  height={256 +80}
+                  />
+                */}
+                
+            </div>
+            
           </div>
         ) : (
           <div>
@@ -191,7 +260,6 @@ function Programming() {
                   </label>
                   {spacing}
                   <select name="no-of-questions" onChange={optionChange}>
-                    <option value="10">All</option>
                     <option value="5">5</option>
                     <option value="7">7</option>
                   </select>
@@ -200,19 +268,19 @@ function Programming() {
                 <span className="Question">Question {currentQuestion + 1}</span>
               </div>
               <div className="question-text">
-                {random[currentQuestion].questionText}
+                key={random[currentQuestion].questionText}
               </div>
             </div>
 
             <div className="answers">
               {random[currentQuestion].answerOptions.map((answerOptions) => (
-                <button
+                <button 
                   onClick={() =>
                     handleAnswerButtonClick(answerOptions.isCorrect)
                   }
                   className="answers-btn"
                 >
-                  {answerOptions.answerText}
+                 key= {answerOptions.answerText}
                 </button>
               ))}
             </div>

@@ -16,14 +16,18 @@ const Registration = ({ submitForm }) => {
   return (
     <div className="form-div">
       <form onSubmit={handleSubmit} className="form" noValidate>
-        <h2>ACA Team Social</h2>
+        
+        <h2 className="h2">ACA Team Social</h2>
+        <fieldset className="fieldset">
         <div className="form-input-div">
+        <label htmlFor="username">username</label>
           <p>
             <input
               className="input"
               type="text"
               name="username"
               id="username"
+              aria-label="username"
               pattern=" /^[A-Za-z]+$/i"
               placeholder="Enter UserName"
               value={values.username}
@@ -37,6 +41,7 @@ const Registration = ({ submitForm }) => {
             </button>
           </p>
         </div>
+        </fieldset>
       </form>
     </div>
   );
