@@ -27,7 +27,6 @@ const Registration = ({ submitForm }) => {
               type="text"
               name="username"
               id="username"
-              aria-label="username"
               pattern=" /^[A-Za-z]+$/i"
               placeholder="Enter UserName"
               value={values.username}

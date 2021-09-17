@@ -169,10 +169,9 @@ function Programming() {
       setShowScore(true);
     }
   };
-
+//scraping
   const [templates,setTemplates] = useState(null);
- //const [template,setTemplate] = useState(null);
-
+ 
 
   useEffect(() => {
 

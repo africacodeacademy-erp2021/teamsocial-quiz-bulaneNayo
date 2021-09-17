@@ -28,7 +28,7 @@ test('checks whether the start button exists and disabled by default', () => {
   expect(input).not.toBe('*//*+-@$') ;
 
 });*/
-
+//how 
 
 /*test('indicate if field is empty, below or above range', async () => {
   render(<input name="username" id="username"  />);
